@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sitvsset.org — a high-end gaming-style lesson to master Sit vs Set with interactive challenges."
+    />
+    <title>Sitvsset.org | Sit vs Set</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="matrix" aria-hidden="true"></canvas>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-vignette" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="logoMark" aria-hidden="true"></div>
+        <span class="topbar__brand">Sitvsset.org</span>
+      </div>
+      <nav class="topbar__nav" aria-label="Primary">
+        <a href="#learn">Learn</a>
+        <a href="#speed-quiz">Speed Quiz</a>
+        <a href="#drag-battle">Drag Battle</a>
+        <a href="#boss-fight">Boss Fight</a>
+      </nav>
+      <div class="topbar__right">
+        <button class="btn btn--ghost" id="toggle-audio" type="button" aria-pressed="true">
+          Audio: ON
+        </button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="hero" id="top">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="dot dot--cyan"></span>
+            <span class="dot dot--purple"></span>
+            <span class="mono">LESSON MODE</span>
+            <span class="spacer"></span>
+            <span class="mono faint">SIT vs SET</span>
+          </div>
+
+          <div class="hero__logoWrap">
+            <div class="hero__logoGlow" aria-hidden="true"></div>
+            <h1 class="hero__logo" aria-label="Sitvsset.org">
+              <span class="hero__logoText">Sitvsset.org</span>
+            </h1>
+            <p class="hero__subtitle">
+              A high-end, gaming-style lesson to master <strong>Sit</strong> vs <strong>Set</strong> — with
+              neon challenges, fast decisions, and instant feedback.
+            </p>
+          </div>
+
+          <div class="hero__ctaRow">
+            <button class="btn btn--primary btn--pulse" id="enter-challenge" type="button">
+              Enter the Challenge
+            </button>
+            <a class="btn btn--glass" href="#learn">Start Learning</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="statCard">
+              <div class="statCard__label">Difficulty</div>
+              <div class="statCard__value"><span class="pill pill--purple">Adaptive</span></div>
+            </div>
+            <div class="statCard">
+              <div class="statCard__label">Feedback</div>
+              <div class="statCard__value"><span class="pill pill--cyan">Instant</span></div>
+            </div>
+            <div class="statCard">
+              <div class="statCard__label">Mode</div>
+              <div class="statCard__value"><span class="pill pill--mix">Speed + Strategy</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__side">
+          <div class="panel panel--glass">
+            <div class="panel__titleRow">
+              <h2 class="panel__title">Mission Brief</h2>
+              <span class="chip">Core Rule</span>
+            </div>
+            <p class="panel__text">
+              Use <strong>sit</strong> when someone <em>takes a seat</em>. Use <strong>set</strong> when you
+              <em>place something somewhere</em> (or set a rule/plan/time).
+            </p>
+            <div class="callouts">
+              <div class="callout callout--cyan">
+                <div class="callout__title">SIT</div>
+                <div class="callout__body">A person/animal sits (no object needed).</div>
+              </div>
+              <div class="callout callout--purple">
+                <div class="callout__title">SET</div>
+                <div class="callout__body">You set <em>something</em> down / set plans, rules, times.</div>
+              </div>
+            </div>
+            <div class="panel__actions">
+              <a class="btn btn--ghost" href="#speed-quiz">Jump to Speed Quiz</a>
+              <a class="btn btn--ghost" href="#drag-battle">Jump to Drag Battle</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="learn" aria-labelledby="learn-title">
+        <div class="section__head">
+          <h2 class="section__title" id="learn-title">Comprehensive Learning: Sit vs Set</h2>
+          <p class="section__subtitle">
+            Learn the rules, patterns, and common traps — then deploy your skills in the arenas below.
+          </p>
+        </div>
+
+        <div class="grid2">
+          <article class="panel panel--glass">
+            <h3 class="panel__subtitle">Quick Rules</h3>
+            <ul class="bullets">
+              <li>
+                <strong>Sit</strong>: a person/animal sits down (intransitive). Example: “Please <em>sit</em>
+                here.”
+              </li>
+              <li>
+                <strong>Set</strong>: put/place something somewhere (transitive). Example: “<em>Set</em> the
+                book on the table.”
+              </li>
+              <li>
+                <strong>Set</strong> also means arrange/establish: “<em>set</em> a goal”, “<em>set</em> the
+                rules”, “<em>set</em> an alarm”.
+              </li>
+              <li>
+                If there’s a clear <strong>object</strong> receiving the action, it’s usually <strong>set</strong>.
+              </li>
+            </ul>
+          </article>
+
+          <article class="panel panel--glass">
+            <h3 class="panel__subtitle">Common Confusions</h3>
+            <div class="miniCards">
+              <div class="miniCard">
+                <div class="miniCard__k">Wrong</div>
+                <div class="miniCard__v">“I will <em>set</em> on the chair.”</div>
+              </div>
+              <div class="miniCard">
+                <div class="miniCard__k">Right</div>
+                <div class="miniCard__v">“I will <em>sit</em> on the chair.”</div>
+              </div>
+              <div class="miniCard">
+                <div class="miniCard__k">Wrong</div>
+                <div class="miniCard__v">“<em>Sit</em> the cup on the counter.”</div>
+              </div>
+              <div class="miniCard">
+                <div class="miniCard__k">Right</div>
+                <div class="miniCard__v">“<em>Set</em> the cup on the counter.”</div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="panel panel--glass tableWrap" role="region" aria-label="Sit vs Set learning table">
+          <div class="tableTitleRow">
+            <h3 class="panel__subtitle">Glassmorphism Learning Table</h3>
+            <div class="legend">
+              <span class="legend__item"><span class="swatch swatch--cyan"></span> Sit</span>
+              <span class="legend__item"><span class="swatch swatch--purple"></span> Set</span>
+            </div>
+          </div>
+
+          <div class="tableScroll" tabindex="0">
+            <table class="glassTable">
+              <thead>
+                <tr>
+                  <th>Verb</th>
+                  <th>Core Meaning</th>
+                  <th>Needs an Object?</th>
+                  <th>Examples</th>
+                  <th>Common Trap</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row--sit">
+                  <td><strong>Sit</strong></td>
+                  <td>Take a seat; be seated</td>
+                  <td><span class="pill pill--cyan">No</span></td>
+                  <td>
+                    “Please <em>sit</em> down.”<br />
+                    “The cat <em>sat</em> on the mat.”
+                  </td>
+                  <td>Using “set” for a person’s action of sitting</td>
+                </tr>
+                <tr class="row--set">
+                  <td><strong>Set</strong></td>
+                  <td>Put/place something; position</td>
+                  <td><span class="pill pill--purple">Yes</span></td>
+                  <td>
+                    “<em>Set</em> the keys on the shelf.”<br />
+                    “She <em>set</em> the box down.”
+                  </td>
+                  <td>Using “sit” when you mean placing an object</td>
+                </tr>
+                <tr class="row--set">
+                  <td><strong>Set</strong></td>
+                  <td>Establish/arrange (rules, goals, times)</td>
+                  <td><span class="pill pill--purple">Usually</span></td>
+                  <td>
+                    “<em>Set</em> a timer for 10 minutes.”<br />
+                    “<em>Set</em> the rules before you start.”
+                  </td>
+                  <td>Forgetting “set” can be abstract, not only physical</td>
+                </tr>
+                <tr class="row--sit">
+                  <td><strong>Sit</strong></td>
+                  <td>Be located/placed (informal/idiomatic)</td>
+                  <td><span class="pill pill--cyan">No</span></td>
+                  <td>
+                    “The house <em>sits</em> on a hill.”<br />
+                    “The file <em>sat</em> untouched.”
+                  </td>
+                  <td>Thinking “sit” is only for people</td>
+                </tr>
+                <tr class="row--set">
+                  <td><strong>Set</strong></td>
+                  <td>Ready someone/something (“set up”, “set free”)</td>
+                  <td><span class="pill pill--purple">Yes</span></td>
+                  <td>
+                    “They <em>set up</em> the lab.”<br />
+                    “He <em>set</em> the prisoner free.”
+                  </td>
+                  <td>Mixing with “sit” because of similar sound</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="speed-quiz" aria-labelledby="speed-quiz-title">
+        <div class="section__head">
+          <h2 class="section__title" id="speed-quiz-title">Game 1: Speed Quiz</h2>
+          <p class="section__subtitle">
+            Fast-paced decision-making. Choose <strong>SIT</strong> or <strong>SET</strong> before time runs out.
+          </p>
+        </div>
+
+        <div class="grid2">
+          <div class="panel panel--glass">
+            <div class="quizHud">
+              <div class="hudItem">
+                <div class="hudItem__k">Time</div>
+                <div class="hudItem__v"><span id="quiz-time">0.0</span>s</div>
+              </div>
+              <div class="hudItem">
+                <div class="hudItem__k">Streak</div>
+                <div class="hudItem__v"><span id="quiz-streak">0</span></div>
+              </div>
+              <div class="hudItem">
+                <div class="hudItem__k">Score</div>
+                <div class="hudItem__v"><span id="quiz-score">0</span></div>
+              </div>
+            </div>
+
+            <div class="prompt">
+              <div class="prompt__label">Fill the blank</div>
+              <div class="prompt__text" id="quiz-prompt" aria-live="polite">Press Start.</div>
+            </div>
+
+            <div class="choiceRow">
+              <button class="btn btn--choice btn--cyan" id="btn-sit" type="button">SIT</button>
+              <button class="btn btn--choice btn--purple" id="btn-set" type="button">SET</button>
+            </div>
+
+            <div class="quizControls">
+              <button class="btn btn--primary" id="quiz-start" type="button">Start</button>
+              <button class="btn btn--glass" id="quiz-reset" type="button">Reset</button>
+              <button class="btn btn--ghost" id="quiz-difficulty" type="button">
+                Difficulty: <span id="quiz-difficulty-label">Normal</span>
+              </button>
+            </div>
+
+            <div class="feedback" id="quiz-feedback" aria-live="polite"></div>
+          </div>
+
+          <div class="panel panel--glass">
+            <h3 class="panel__subtitle">How to Win</h3>
+            <ul class="bullets">
+              <li><strong>SIT</strong> when the subject is taking a seat or being seated.</li>
+              <li><strong>SET</strong> when placing something or establishing a rule/plan/time.</li>
+              <li>
+                If you can ask <strong>“Set what?”</strong> and answer with an object, it’s probably <strong>SET</strong>.
+              </li>
+            </ul>
+            <div class="divider"></div>
+            <h3 class="panel__subtitle">Power Tip</h3>
+            <p class="panel__text">
+              Look for the <strong>object</strong>. “Set the phone down.” The object is <em>the phone</em>. But
+              “Sit down.” No object is receiving the action.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="drag-battle" aria-labelledby="drag-title">
+        <div class="section__head">
+          <h2 class="section__title" id="drag-title">Game 2: Drag-and-Drop Battle</h2>
+          <p class="section__subtitle">
+            Sort phrases into the correct lane: <strong>SIT</strong> vs <strong>SET</strong>. Build combos.
+          </p>
+        </div>
+
+        <div class="panel panel--glass">
+          <div class="battleHud">
+            <div class="hudItem">
+              <div class="hudItem__k">Combo</div>
+              <div class="hudItem__v"><span id="dd-combo">0</span></div>
+            </div>
+            <div class="hudItem">
+              <div class="hudItem__k">Correct</div>
+              <div class="hudItem__v"><span id="dd-correct">0</span></div>
+            </div>
+            <div class="hudItem">
+              <div class="hudItem__k">Mistakes</div>
+              <div class="hudItem__v"><span id="dd-wrong">0</span></div>
+            </div>
+            <div class="hudItem hudItem--right">
+              <button class="btn btn--glass" id="dd-reshuffle" type="button">Reshuffle</button>
+            </div>
+          </div>
+
+          <div class="battleArena" aria-label="Drag and drop arena">
+            <div class="lane lane--sit" data-lane="sit" role="region" aria-label="Sit lane">
+              <div class="lane__head">
+                <span class="lane__title">SIT</span>
+                <span class="lane__hint">people/animals take a seat</span>
+              </div>
+              <div class="lane__drop" id="lane-sit" tabindex="0">
+                <div class="lane__placeholder">Drop SIT phrases here</div>
+              </div>
+            </div>
+
+            <div class="lane lane--set" data-lane="set" role="region" aria-label="Set lane">
+              <div class="lane__head">
+                <span class="lane__title">SET</span>
+                <span class="lane__hint">place objects / set rules, plans, times</span>
+              </div>
+              <div class="lane__drop" id="lane-set" tabindex="0">
+                <div class="lane__placeholder">Drop SET phrases here</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="deck" aria-label="Phrase deck">
+            <div class="deck__head">
+              <div class="deck__title">Phrase Deck</div>
+              <div class="deck__hint">Drag a card into a lane</div>
+            </div>
+            <div class="deck__cards" id="dd-deck"></div>
+          </div>
+
+          <div class="feedback feedback--battle" id="dd-feedback" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section" id="boss-fight" aria-labelledby="boss-title">
+        <div class="section__head">
+          <h2 class="section__title" id="boss-title">Boss Fight: Sit/Set Rapid Rounds</h2>
+          <p class="section__subtitle">
+            A 12-hit gauntlet. Survive by choosing the correct verb. Misses reduce your shield.
+          </p>
+        </div>
+
+        <div class="panel panel--glass boss">
+          <div class="boss__hud">
+            <div class="shield" aria-label="Shield">
+              <div class="shield__label">Shield</div>
+              <div class="shield__bar" aria-hidden="true"><div id="boss-shield-fill" class="shield__fill"></div></div>
+              <div class="shield__value"><span id="boss-shield">100</span>%</div>
+            </div>
+            <div class="boss__stats">
+              <div class="hudItem">
+                <div class="hudItem__k">Round</div>
+                <div class="hudItem__v"><span id="boss-round">0</span>/12</div>
+              </div>
+              <div class="hudItem">
+                <div class="hudItem__k">Hits</div>
+                <div class="hudItem__v"><span id="boss-hits">0</span></div>
+              </div>
+              <div class="hudItem">
+                <div class="hudItem__k">Fails</div>
+                <div class="hudItem__v"><span id="boss-fails">0</span></div>
+              </div>
+            </div>
+            <div class="boss__actions">
+              <button class="btn btn--primary" id="boss-start" type="button">Start Boss Fight</button>
+              <button class="btn btn--glass" id="boss-reset" type="button">Reset</button>
+            </div>
+          </div>
+
+          <div class="boss__core">
+            <div class="boss__prompt">
+              <div class="prompt__label">Choose the best verb</div>
+              <div class="prompt__text" id="boss-prompt" aria-live="polite">Press Start.</div>
+            </div>
+            <div class="choiceRow">
+              <button class="btn btn--choice btn--cyan" id="boss-sit" type="button">SIT</button>
+              <button class="btn btn--choice btn--purple" id="boss-set" type="button">SET</button>
+            </div>
+            <div class="feedback" id="boss-feedback" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <div class="footer__brand">Sitvsset.org</div>
+          <div class="footer__sub">Neon lesson build — Sit vs Set</div>
+        </div>
+        <div class="footer__right">
+          Made by: Ahmed Khaled Salama - Fares Morsy - Youssef Gamal. The Project is Delivered to M.R. Hussam. (G6E) AlShamelah Internation School.
+        </div>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
